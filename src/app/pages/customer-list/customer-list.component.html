@@ -1,0 +1,25 @@
+<div class="container">
+  <h2 class="mt-4 mb-5"><i class="fas fa-users"></i> Customers</h2>
+
+  <article class="articleNav mb-4">
+    <div class="left d-flex align-items-center">
+      <div class="radioBox">
+        <input type="radio" id="listview" name="viewtype" (change)="changeCustomerView('listview')">
+        <label for="listview"><i class="fas fa-bars"></i> List view</label>
+      </div>
+
+      <div class="radioBox">
+        <input checked type="radio" id="cardview" name="viewtype" (change)="changeCustomerView('cardview')">
+        <label for="cardview"><i class="fas fa-th-large"></i> Card view</label>
+      </div>
+    </div>
+
+    <div class="right">
+      <a routerLink="/add-customer"><i class="fas fa-user-plus"></i> Add New Customer</a>
+    </div>
+  </article>
+
+  <app-customer-listview *ngIf="viewType.toLowerCase() === 'listview'"></app-customer-listview>
+  <app-customer-cardview *ngIf="viewType.toLowerCase() === 'cardview'"></app-customer-cardview>
+</div>
+

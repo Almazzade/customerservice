@@ -1,0 +1,27 @@
+.articleNav{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 -15px;
+
+  .radioBox{
+    padding: 0 15px;
+
+    input{
+      display: none;
+
+      + label{
+        color: lightgray;
+        font-weight: 500;
+        font-size: 18px;
+        transition: .5s;
+        text-transform: capitalize;
+        cursor: pointer;
+      }
+
+      &:checked + label{
+        color: black;
+      }
+    }
+  }
+}

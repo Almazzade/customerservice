@@ -1,0 +1,25 @@
+<div class="row">
+  <div *ngFor="let customer of customerArr; let i = index" class="col-md-4 col-lg-3">
+    <div class="customer_card">
+      <div class="card_header">
+        <a [routerLink]="['/customer', i]" class="customer_name">
+          {{customer.firstname}} {{customer.lastname}} <sup><i class="fas fa-external-link-alt"></i></sup>
+        </a>
+      </div>
+
+      <div class="card_body">
+        <div class="imgHolder">
+          <img class="customerAvatar" src="assets/images/{{customer.gender ? 'male.png' : 'female.png'}}">
+        </div>
+
+        <div class="content">
+          <p class="country">{{customer.city}}, {{customer.country}}</p>
+        </div>
+
+        <a class="edit_customer" [routerLink]="['/edit-customer', i]">
+          <i class="fas fa-edit"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

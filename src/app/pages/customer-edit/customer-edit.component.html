@@ -1,0 +1,199 @@
+<!--suppress ALL -->
+<div class="container">
+  <h2 class="mt-4 mb-5 d-flex align-items-center">
+    <img class="customerAvatar mr-3" src="assets/images/{{activeCustomer.gender ? 'male.png' : 'female.png'}}">
+    {{commonService.GetFullName(activeCustomer)}}
+  </h2>
+
+  <form [formGroup]="editCustomerForm" validate>
+    <!--    FIRSTNAME-->
+    <div class="row">
+      <div class="col-md-6 col-lg-5">
+        <div class="form-group">
+          <label for="firstname">First name</label>
+          <input
+            type="text"
+            id="firstname"
+            placeholder="Firstname"
+            formControlName="firstname"
+            autocomplete="off"
+          >
+
+          <ul class="errorList" *ngIf="FORM.firstname.invalid && (FORM.firstname.dirty || FORM.firstname.touched)">
+            <li *ngIf="editCustomerForm.controls['firstname'].hasError('required')">Required input</li>
+            <li *ngIf="editCustomerForm.controls['firstname'].hasError('minlength')">Minimum length - 3</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!--    LASTNAME-->
+    <div class="row">
+      <div class="col-md-6 col-lg-5">
+        <div class="form-group">
+          <label for="lastname">Last name</label>
+          <input
+            type="text"
+            id="lastname"
+            placeholder="Lastname"
+            formControlName="lastname"
+            autocomplete="off"
+          >
+
+          <ul class="errorList" *ngIf="FORM.lastname.invalid && (FORM.lastname.dirty || FORM.lastname.touched)">
+            <li *ngIf="editCustomerForm.controls['lastname'].hasError('required')">Required input</li>
+            <li *ngIf="editCustomerForm.controls['lastname'].hasError('minlength')">Minimum length - 3</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!--    GENDER-->
+    <div class="row">
+      <div class="col-md-6 col-lg-5">
+        <div class="form-group">
+          <label>Gender</label>
+
+          <div class="d-flex align-items-center mx-n3">
+            <!-- MALE -->
+            <div class="px-3 d-flex align-items-center">
+              <label>
+                <input [attr.checked]="activeCustomer.gender ? '' : null" type="radio" [value]="true"
+                       formControlName="gender">
+                <span class="ml-2 font-weight-normal">Male</span>
+              </label>
+            </div>
+            <!-- FEMALE -->
+            <div class="px-3 d-flex align-items-center">
+              <label>
+                <input [attr.checked]="!activeCustomer.gender ? '' : null" type="radio" [value]="false"
+                       formControlName="gender">
+                <span class="ml-2 font-weight-normal">Female</span>
+              </label>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!--    EMAIL-->
+    <div class="row">
+      <div class="col-md-6 col-lg-5">
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input
+            type="email"
+            id="email"
+            placeholder="Email"
+            formControlName="email"
+            autocomplete="off"
+          >
+
+          <ul class="errorList" *ngIf="FORM.email.invalid && (FORM.email.dirty || FORM.email.touched)">
+            <li *ngIf="editCustomerForm.controls['email'].hasError('required')">Required input</li>
+            <li *ngIf="editCustomerForm.controls['email'].hasError('minlength')">Minimum length - 10</li>
+            <li *ngIf="editCustomerForm.controls['email'].hasError('email')">Not email</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!--    ADDRESS-->
+    <div class="row">
+      <div class="col-md-6 col-lg-5">
+        <div class="form-group">
+          <label for="address">Address</label>
+          <input
+            type="text"
+            id="address"
+            placeholder="Address"
+            formControlName="address"
+            autocomplete="off"
+          >
+
+          <ul class="errorList" *ngIf="FORM.address.invalid && (FORM.address.dirty || FORM.address.touched)">
+            <li *ngIf="editCustomerForm.controls['address'].hasError('required')">Required input</li>
+            <li *ngIf="editCustomerForm.controls['address'].hasError('minlength')">Minimum length - 10</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!--    CITY-->
+    <div class="row">
+      <div class="col-md-6 col-lg-5">
+        <div class="form-group">
+          <label for="city">City</label>
+          <input
+            type="text"
+            id="city"
+            placeholder="City"
+            formControlName="city"
+            autocomplete="off"
+          >
+
+          <ul class="errorList" *ngIf="FORM.city.invalid && (FORM.city.dirty || FORM.city.touched)">
+            <li *ngIf="editCustomerForm.controls['city'].hasError('required')">Required input</li>
+            <li *ngIf="editCustomerForm.controls['city'].hasError('minlength')">Minimum length - 3</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!--    COUNTRY-->
+    <div class="row">
+      <div class="col-md-6 col-lg-5">
+        <div class="form-group">
+          <label for="country">Country</label>
+          <input
+            type="text"
+            id="country"
+            placeholder="Country"
+            formControlName="country"
+            autocomplete="off"
+          >
+
+          <ul class="errorList" *ngIf="FORM.country.invalid && (FORM.country.dirty || FORM.country.touched)">
+            <li *ngIf="editCustomerForm.controls['country'].hasError('required')">Required input</li>
+            <li *ngIf="editCustomerForm.controls['country'].hasError('minlength')">Minimum length - 3</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!--    GOOGLE MAP-->
+    <div class="row">
+      <div class="col-md-6 col-lg-5">
+        <div class="form-group">
+          <label for="googlemaplocation">Google Map Location</label>
+          <input
+            type="text"
+            id="googlemaplocation"
+            placeholder="Google Map Location"
+            formControlName="googlemaplocation"
+            autocomplete="off"
+          >
+          <small class="text-muted d-block text-right">Not required</small>
+
+          <ul class="errorList"
+              *ngIf="FORM.googlemaplocation.invalid && (FORM.googlemaplocation.dirty || FORM.googlemaplocation.touched)">
+            <li *ngIf="editCustomerForm.controls['googlemaplocation'].hasError('required')">Required input</li>
+            <li *ngIf="editCustomerForm.controls['googlemaplocation'].hasError('minlength')">Minimum length - 3</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!--    BUTTONS-->
+    <div class="row">
+      <div class="col-md-6 col-lg-5 d-flex justify-content-between">
+        <div>
+          <a routerLink="/index" class="btn btn-light">Cancel</a>
+          <button type="button" (click)="DeleteCustomer(customerId)" class="btn btn-danger">Delete</button>
+        </div>
+        <button (click)="CustomerFormSubmit()" type="button" class="btn btn-success">Update</button>
+      </div>
+    </div>
+  </form>
+</div>
