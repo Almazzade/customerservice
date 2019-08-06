@@ -1,5 +1,4 @@
-import {Component, OnInit} from '@angular/core';
-import {CustomerListService} from '../../../services/customer-list.service';
+import {Component, Input, OnInit} from '@angular/core';
 import {ICustomer} from '../../../model/ICustomer';
 
 @Component({
@@ -8,10 +7,9 @@ import {ICustomer} from '../../../model/ICustomer';
   styleUrls: ['./customer-cardview.component.scss']
 })
 export class CustomerCardviewComponent implements OnInit {
-  customerArr: ICustomer[] = this.customerService.customerArray;
+  @Input() CustomerArrayFromParent: ICustomer[];
 
   constructor(
-    private customerService: CustomerListService
   ) {
   }
 

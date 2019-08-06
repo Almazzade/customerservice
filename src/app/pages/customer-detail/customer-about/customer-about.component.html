@@ -1,0 +1,15 @@
+<div class="d-flex mb-4">
+  <img class="customerAvatar" src="assets/images/{{activeCustomer.gender ? 'male.png' : 'female.png'}}">
+
+  <div class="content">
+    <h5 class="mb-4">{{GetFullName()}}</h5>
+    <h6>{{GetFullAddress()}}</h6>
+  </div>
+</div>
+
+<div class="mapHolder" *ngIf="activeCustomer.googlemaplocation">
+  <iframe class="w-100" [src]="activeCustomer.googlemaplocation | safe" width="600" height="450" frameborder="0"
+          style="border:0" allowfullscreen></iframe>
+</div>
+
+<b class="text-center d-block py-3" *ngIf="!activeCustomer.googlemaplocation">This customer not set address on map</b>

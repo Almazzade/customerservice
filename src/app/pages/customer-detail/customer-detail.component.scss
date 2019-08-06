@@ -1,6 +1,20 @@
-.customerAvatar{
-  width: 100px;
-  height: 100px;
-  object-fit: contain;
-  margin-right: 50px;
+.customerNav{
+  .radioBox{
+    input{
+      display: none;
+
+      + label{
+        color: lightgray;
+        font-weight: 500;
+        font-size: 18px;
+        transition: .5s;
+        text-transform: capitalize;
+        cursor: pointer;
+      }
+
+      &:checked + label{
+        color: black;
+      }
+    }
+  }
 }

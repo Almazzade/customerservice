@@ -1,6 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {ICustomer, IOrder} from '../../../model/ICustomer';
-import {CustomerListService} from '../../../services/customer-list.service';
 
 @Component({
   selector: 'app-customer-listview',
@@ -8,21 +7,24 @@ import {CustomerListService} from '../../../services/customer-list.service';
   styleUrls: ['./customer-listview.component.scss']
 })
 export class CustomerListviewComponent implements OnInit {
-  customerArr: ICustomer[] = this.customerService.customerArray;
+  @Input() CustomerArrayFromParent: ICustomer[];
 
-  constructor(
-    private customerService: CustomerListService
-  ) {
+  constructor() {
   }
 
   GetOrderTotal(orders: IOrder[]) {
-    let total = 0;
+    if (orders) {
+      let total = 0;
 
-    for (const order of orders) {
-      total += order.price;
+      for (const order of orders) {
+        total += order.price;
+      }
+
+      return total + '$';
+    } else {
+      return '0$';
     }
 
-    return total + '$';
   }
 
   ngOnInit() {

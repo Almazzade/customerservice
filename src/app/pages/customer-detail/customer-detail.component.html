@@ -1,33 +1,18 @@
 <div class="container">
   <h2 class="mt-4 mb-5"><i class="fas fa-user"></i> Customer Information</h2>
 
-<!--  <nav>-->
-<!--    <div class="radioBox">-->
-<!--      <input type="radio" name="customertab" id="customerdetails">-->
-<!--      <label for="customerdetails"></label>-->
-<!--    </div>-->
-
-<!--    <div class="radioBox">-->
-<!--      <input type="radio" name="customertab" id="customerorders">-->
-<!--      <label for="customerorders"></label>-->
-<!--    </div>-->
-
-<!--    <div class="radioBox">-->
-<!--      <input type="radio" name="customertab" id="editcustomer">-->
-<!--      <label for="editcustomer"></label>-->
-<!--    </div>-->
-<!--  </nav>-->
-
-  <div class="d-flex mb-4">
-    <img class="customerAvatar" src="assets/images/{{activeCustomer.gender ? 'male.png' : 'female.png'}}">
-
-    <div class="content">
-      <h5 class="mb-4">{{GetFullName()}}</h5>
-      <h6>{{GetFullAddress()}}</h6>
+  <nav class="customerNav d-flex flex-column flex-md-row mx-n3 mb-5">
+    <div class="radioBox px-3">
+      <input checked type="radio" name="customertab" id="customerdetails" (change)="ChangeCustomerDetailTab('about')">
+      <label for="customerdetails">About Customer</label>
     </div>
-  </div>
 
-<!--  <div class="mapHolder" *ngIf="activeCustomer.googlemaplocation">-->
-<!--    <iframe [src]="activeCustomer.googlemaplocation | safe" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>-->
-<!--  </div>-->
+    <div class="radioBox px-3">
+      <input type="radio" name="customertab" id="customerorders" (change)="ChangeCustomerDetailTab('orders')">
+      <label for="customerorders">Orders</label>
+    </div>
+  </nav>
+
+  <app-customer-about [activeCustomer]="activeCustomer" *ngIf="customerTab.toLowerCase() === 'about'"></app-customer-about>
+  <app-customer-orders [activeCustomer]="activeCustomer" *ngIf="customerTab.toLowerCase() === 'orders'"></app-customer-orders>
 </div>

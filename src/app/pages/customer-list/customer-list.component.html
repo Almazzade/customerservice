@@ -4,14 +4,18 @@
   <article class="articleNav mb-4">
     <div class="left d-flex align-items-center">
       <div class="radioBox">
-        <input type="radio" id="listview" name="viewtype" (change)="changeCustomerView('listview')">
+        <input checked type="radio" id="listview" name="viewtype" (change)="changeCustomerView('listview')">
         <label for="listview"><i class="fas fa-bars"></i> List view</label>
       </div>
 
       <div class="radioBox">
-        <input checked type="radio" id="cardview" name="viewtype" (change)="changeCustomerView('cardview')">
+        <input type="radio" id="cardview" name="viewtype" (change)="changeCustomerView('cardview')">
         <label for="cardview"><i class="fas fa-th-large"></i> Card view</label>
       </div>
+    </div>
+
+    <div class="middle my-3 my-md-0">
+      <input class="form-control" placeholder="Search..." type="text" #filterCustomerInput (input)="ChangeFilterInput(filterCustomerInput.value)">
     </div>
 
     <div class="right">
@@ -19,7 +23,7 @@
     </div>
   </article>
 
-  <app-customer-listview *ngIf="viewType.toLowerCase() === 'listview'"></app-customer-listview>
-  <app-customer-cardview *ngIf="viewType.toLowerCase() === 'cardview'"></app-customer-cardview>
+  <app-customer-listview [CustomerArrayFromParent]="customerARRAY" *ngIf="viewType.toLowerCase() === 'listview'"></app-customer-listview>
+  <app-customer-cardview [CustomerArrayFromParent]="customerARRAY" *ngIf="viewType.toLowerCase() === 'cardview'"></app-customer-cardview>
 </div>
 

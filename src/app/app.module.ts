@@ -12,6 +12,8 @@ import { CustomerDetailComponent } from './pages/customer-detail/customer-detail
 import {SafePipe} from './pipes/safe.pipe';
 import { AddCustomerComponent } from './pages/add-customer/add-customer.component';
 import { CustomerEditComponent } from './pages/customer-edit/customer-edit.component';
+import { CustomerAboutComponent } from './pages/customer-detail/customer-about/customer-about.component';
+import { CustomerOrdersComponent } from './pages/customer-detail/customer-orders/customer-orders.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,9 @@ import { CustomerEditComponent } from './pages/customer-edit/customer-edit.compo
     CustomerDetailComponent,
     SafePipe,
     AddCustomerComponent,
-    CustomerEditComponent
+    CustomerEditComponent,
+    CustomerAboutComponent,
+    CustomerOrdersComponent
   ],
   imports: [
     BrowserModule,

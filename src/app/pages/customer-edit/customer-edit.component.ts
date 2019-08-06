@@ -53,7 +53,7 @@ export class CustomerEditComponent implements OnInit {
       const customer: ICustomer = {
         firstname: this.editCustomerForm.value.firstname,
         lastname: this.editCustomerForm.value.lastname,
-        gender: this.editCustomerForm.value.gender === 'true',
+        gender: this.editCustomerForm.value.gender,
         email: this.editCustomerForm.value.email,
         address: this.editCustomerForm.value.address,
         city: this.editCustomerForm.value.city,
@@ -87,6 +87,7 @@ export class CustomerEditComponent implements OnInit {
     this.CustomerService.customerArray.splice(index, 1);
     this.router.navigateByUrl('/index');
   }
+
   // endregion
   // region SET INPUTS
   SetInputs(cust: ICustomer) {
